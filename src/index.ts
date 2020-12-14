@@ -22,7 +22,7 @@ import { sep as pathSeparator } from 'path';
 import { existsSync, readFileSync } from 'fs';
 import { createHook } from 'async_hooks';
 
-import { stackback } from './src/stackback';
+import { stackback } from './lib/stackback';
 
 const active = new Map();
 

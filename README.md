@@ -3,7 +3,8 @@
 ![License](https://badgen.net/github/license/cheap-glitch/why-is-node-still-running?color=green)
 ![Latest release](https://badgen.net/github/release/cheap-glitch/why-is-node-still-running?color=green)
 
-> This is a port of mafintosh' [why-is-node-running](https://github.com/mafintosh/why-is-node-running) module to TypeScript, with modernize syntax and no dependencies.
+> This is a port of mafintosh' [why-is-node-running](https://github.com/mafintosh/why-is-node-running)
+> module to TypeScript, with modernized syntax and no dependencies.
 
 ## Installation
 ```shell

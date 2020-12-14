@@ -6,4 +6,5 @@ npm-debug.log
 # Code coverage
 
 # Build artifacts
+/build/
 index*.js

@@ -1,10 +1,11 @@
 {
-  "files": ["index.ts"],
+  "files": ["./src/index.ts"],
   "compilerOptions": {
-    "outDir":                     ".",
+    "outDir":                     "./build",
     "module":                     "commonjs",
     "target":                     "es2018",
     "lib":                        ["es2019"],
+    "moduleResolution":           "node",
     "strict":                     true,
 		"noEmitOnError":              true,
 		"noFallthroughCasesInSwitch": true,
