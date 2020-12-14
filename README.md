@@ -21,7 +21,7 @@ whyIsNodeStillRunning();
 ## Installation
 
 ```shell
-npm i why-is-node-still-running
+npm i -D why-is-node-still-running
 ```
 
 ## Usage
@@ -45,13 +45,17 @@ afterAll(async () => {
 	// [...]
 
 	// Print the handles still opened
-	await new Promise(resolve => setTimeout(() => { log(); resolve(); }, 4000));
+	await new Promise(resolve => setTimeout(() => {
+		whyIsNodeStillRunning();
+		resolve();
+	}, 4000));
 });
 ```
-Then run Jest with `--useStderr` to show console output.
+
+Don't forget to run Jest with `--useStderr` to show console output.
 
 Alternatively, you can use this module to print some information about the stack
-regularly (e.g. see [this comment](https://github.com/facebook/jest/issues/9473#issuecomment-675738694)).
+regularly while the tests are running (e.g. see [this comment](https://github.com/facebook/jest/issues/9473#issuecomment-675738694)).
 
 ## License
 
