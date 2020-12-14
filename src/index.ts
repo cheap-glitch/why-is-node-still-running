@@ -54,7 +54,7 @@ export function whyIsNodeStillRunning(logger: any = console): void {
 		|| resource.resource.hasRef()
 	);
 
-	logger.error(`There are ${activeResources.length} handle(s) keeping the process running`);
+	logger.error(`There are ${activeResources.length} handle(s) keeping the process running:`);
 	activeResources.forEach(resource => printStacks(logger, resource));
 }
 
