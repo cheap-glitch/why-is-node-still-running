@@ -8,10 +8,13 @@ export function stackback(error: any): any {
 	Error.prepareStackTrace = function(err: any, trace: any): any {
 		Object.defineProperty(err, '_sb_callsites', { value: trace });
 
+		/* istanbul ignore next */
 		return (save || formatStackTrace)(err, trace);
 	};
 
 	error.stack;
+
+	/* istanbul ignore next */
 	if (!error._sb_callsites) {
 		return [];
 	}

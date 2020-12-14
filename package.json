@@ -18,11 +18,25 @@
     "node-is-still-running-goddammit"
   ],
   "main": "./build/index.min.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "build": "npm run build:ts && npm run build:minify",
     "build:minify": "terser --compress --mangle toplevel --comments '/^!/' --output build/index.min.js -- build/index.js",
     "build:ts": "tsc-bundle ./tsconfig.json --exportAs commonjs",
-    "lint": "eslint . --ext .ts --ignore-path .gitignore"
+    "lint": "eslint . --ext .ts --ignore-path .gitignore",
+    "test": "jest --useStderr",
+    "upload:coverage": "coveralls < .coverage/lcov.info"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "coverageDirectory": ".coverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/lib/format.ts"
+    ]
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
@@ -30,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "eslint": "^7.15.0",
     "eslint-plugin-smarter-tabs": "^1.1.2",
+    "fetch-h2": "^2.5.1",
     "jest": "^26.6.3",
     "terser": "^5.5.1",
     "ts-jest": "^26.4.4",

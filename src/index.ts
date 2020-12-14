@@ -36,6 +36,7 @@ const hook = createHook({
 		const stacks = stackback(error);
 		active.set(id, { type, stacks, resource });
 	},
+	/* istanbul ignore next */
 	destroy(id) {
 		active.delete(id);
 	},
@@ -43,7 +44,8 @@ const hook = createHook({
 
 hook.enable();
 
-export function whyIsNodeRunning(logger: any = console): void {
+/* istanbul ignore next */
+export function whyIsNodeStillRunning(logger: any = console): void {
 	hook.disable();
 
 	const activeResources = [...active.values()].filter(resource =>
@@ -52,7 +54,7 @@ export function whyIsNodeRunning(logger: any = console): void {
 		|| resource.resource.hasRef()
 	);
 
-	logger.error('There are %d handle(s) keeping the process running', activeResources.length);
+	logger.error(`There are ${activeResources.length} handle(s) keeping the process running`);
 	activeResources.forEach(resource => printStacks(logger, resource));
 }
 
@@ -63,8 +65,9 @@ function printStacks(logger: any, resource: any): void {
 		return (filename && filename.includes(pathSeparator) && filename.indexOf('internal' + pathSeparator) != 0);
 	});
 
-	logger.error('\n# %s', resource.type);
+	logger.error('\n' + resource.type);
 
+	/* istanbul ignore next */
 	if (!stacks[0]) {
 		logger.error('(unknown stack trace)');
 

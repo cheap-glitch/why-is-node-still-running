@@ -1,9 +1,11 @@
 # npm
+node_modules/
 .npmrc
-node_modules
 npm-debug.log
 
 # Code coverage
+/.coverage/
+/.coveralls.yml
 
 # Build artifacts
 /build/
