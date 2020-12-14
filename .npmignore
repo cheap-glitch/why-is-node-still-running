@@ -6,7 +6,3 @@ npm-debug.log
 # Code coverage
 /.coverage/
 /.coveralls.yml
-
-# Build artifacts
-/build/
-/index*.js
