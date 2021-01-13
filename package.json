@@ -22,9 +22,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "npm run build:ts && npm run build:minify",
-    "build:minify": "terser --compress --mangle toplevel --comments '/^!/' --output build/index.min.js -- build/index.js",
-    "build:ts": "tsc-bundle ./tsconfig.json --exportAs commonjs",
+    "build": "tsc",
+    "coverage:collect": "jest --collectCoverage",
+    "coverage:upload": "coveralls < .coverage/lcov.info",
     "lint": "eslint . --ext .ts --ignore-path .gitignore",
     "test": "jest --useStderr"
   },
@@ -47,7 +47,6 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "collectCoverage": true,
     "coverageDirectory": ".coverage",
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
