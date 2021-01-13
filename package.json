@@ -26,8 +26,24 @@
     "build:minify": "terser --compress --mangle toplevel --comments '/^!/' --output build/index.min.js -- build/index.js",
     "build:ts": "tsc-bundle ./tsconfig.json --exportAs commonjs",
     "lint": "eslint . --ext .ts --ignore-path .gitignore",
-    "test": "jest --useStderr",
-    "upload:coverage": "coveralls < .coverage/lcov.info"
+    "test": "jest --useStderr"
+  },
+  "eslintConfig": {
+    "extends": "@cheap-glitch/typescript",
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "overrides": [
+      {
+        "files": [
+          "test/*.test.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/no-non-null-assertion": "off"
+        }
+      }
+    ]
   },
   "jest": {
     "preset": "ts-jest",
@@ -39,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@cheap-glitch/eslint-config-typescript": "^1.3.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.20",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
